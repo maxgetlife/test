@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Новейшие статьи{% endblock %}
+
+{% block content %}
+
+    {% if latest_futureblog_list %}
+
+        {% for a in latest_futureblog_list %}
+            <a href="{% url 'futureblog:detail' a.id %}">{{a.blog_title}}</a>
+        {% endfor %}
+
+    {% else %}
+    Статьи не найдены...
+    {% endif %}
+
+{% endblock %}
